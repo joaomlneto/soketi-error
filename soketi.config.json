@@ -1,0 +1,26 @@
+{
+  "debug": true,
+  "port": 6001,
+  "userAuthenticationTimeout": 3000,
+  "appManager.array.apps": [
+    {
+      "id": "myapp",
+      "key": "myapp-key",
+      "secret": "myapp-secret",
+      "enabled": true,
+      "enableClientMessages": true,
+      "webhooks": [
+        {
+          "url": "http://localhost:4000/webhook",
+          "event_types": [
+            "client_event",
+            "channel_occupied",
+            "channel_vacated",
+            "member_added",
+            "member_removed"
+          ]
+        }
+      ]
+    }
+  ]
+}
