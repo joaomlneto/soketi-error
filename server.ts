@@ -80,6 +80,14 @@ app.post("/auth-channel", (req, res) => {
   }
 });
 
+app.get("/sendtouser", async (req, res) => {
+  console.log("going to send message to user");
+  await pusher.sendToUser("user1", "my_event", {
+    message: "hello world",
+  });
+  res.status(200).end();
+});
+
 app.all("/webhook", (req, res) => {
   try {
     console.log("⭐️Webhook:", req.body);

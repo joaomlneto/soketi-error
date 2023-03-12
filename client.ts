@@ -35,7 +35,7 @@ pusher.connection
     console.log("Error:", err);
   })
   .bind_global((event: string, data: any) => {
-    console.log("Another Global Event:", event, data);
+    console.log("Received Event:", event, data);
   })
   .bind("connected", async ({ socket_id }: { socket_id: string }) => {
     console.log("Connected", socket_id);
@@ -53,3 +53,7 @@ pusher.connection
 
     pusher.subscribeAll();
   });
+
+pusher.user.bind_global((event: string, data: any) => {
+  console.log("User Event:", event, data);
+});
